@@ -239,7 +239,7 @@ production:
         # replica_set: name
 
         # Whether to connect to the servers via ssl. (default: false)
-        ssl: true
+        #ssl: true
 
         # The certificate file used to identify the connection against MongoDB.
         # ssl_cert: /path/to/my.cert
