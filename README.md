@@ -5,9 +5,9 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version : 2.4.1
 
-* System dependencies
+* System dependencies: see gem file
 
 * Configuration
 
@@ -21,4 +21,5 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* start DB service: "sudo service mongod start"
+more info: https://docs.mongodb.com/master/tutorial/install-mongodb-on-ubuntu/
