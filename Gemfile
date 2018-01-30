@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'redis', '~> 3.0'
 # Use devise for authentication, account creation, confirmation, ...
 gem 'devise'
+# Use pundit for authorization
+gem 'pundit'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
