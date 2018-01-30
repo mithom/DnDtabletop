@@ -23,3 +23,13 @@ Things you may want to cover:
 
 * start DB service: "sudo service mongod start"
 more info: https://docs.mongodb.com/master/tutorial/install-mongodb-on-ubuntu/
+
+* needed ENV_VAR's in development
+DNDTABLETOP_DB_DEFAULT_USERNAME
+DNDTABLETOP_DB_DEFAULT_PASSWORD
+
+*needed ENV VAR's in production
+
+DNDTABLETOP_DB_USERNAME
+DNDTABLETOP_DB_NAME
+DNDTABLETOP_DB_PASSWORD
