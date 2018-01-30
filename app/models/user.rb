@@ -7,8 +7,8 @@ class User
   # Devise option: :stretches, :pepper, :encryptor, :confirm_within, :remember_for, :timeout_in, :unlock_in
 
   ## Database authenticatable
-  field :email,              type: String, default: ""
-  field :encrypted_password, type: String, default: ""
+  field :email,              type: String, default: ''
+  field :encrypted_password, type: String, default: ''
 
   ## Recoverable
   field :reset_password_token,   type: String
