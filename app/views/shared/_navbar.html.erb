@@ -12,7 +12,7 @@
         <%= nav_link 'About', about_path, 'col s4 m2 l1 center' %>
         <%= nav_link 'Features', features_path, ' col s4 m2 l1 center' %>
         <% if user_signed_in? -%>
-            <%= nav_link 'Other&nbsp;user'.html_safe, destroy_session_path(current_user), 'col s6  m2 l1 center', method: :delete %>
+            <%= nav_link 'Profile'.html_safe, user_profile_path, 'col s6  m2 l1 center' %>
             <%= nav_link 'Logout', destroy_session_path(current_user), 'col s6  m2 l1 center', method: :delete %>
         <% else -%>
             <%= nav_link 'Register', new_registration_path(User), 'col s6 m2 l1 center' %>

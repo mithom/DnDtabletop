@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: 'application#index'
 
   get 'application/index'
-  get 'authenticated/protected_index'
+  get 'user/profile', to: "authenticated#profile"
   get 'about', to: "application#about"
   get 'features', to: 'application#features'
 end

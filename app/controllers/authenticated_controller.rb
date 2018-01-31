@@ -7,7 +7,9 @@ class AuthenticatedController < ApplicationController
   # This can be skipped with 'skip_policy_scope' if there is nothing to scope on
   after_action :verify_policy_scoped
 
-  def protected_index
+  def profile
+    skip_policy_scope
+    skip_authorization
     p current_user
     #     if user_signed_in?
     #       test_class = CharacterClass.create!(name: 'test_class')
