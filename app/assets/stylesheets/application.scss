@@ -1,0 +1,77 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require material_icons
+ */
+@import 'materialize';
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+    font-family: Verdana, Geneva, sans-serif;
+    font-size:1em;
+    line-height:1.5em;
+}
+
+h1{
+    font-size:50px;
+    line-height:75px;
+    padding: 30px;
+    text-shadow:0 3px 3px #888;
+}
+h2{
+  font-size:40px;
+  line-height:60px;
+  padding: 25px;
+  text-shadow:0 3px 3px #888;
+}
+h3{
+  font-size:30px;
+  line-height:45px;
+  padding: 20px;
+  text-shadow:0 3px 3px #888;
+}
+p{
+  padding: 20px;
+  font-size:20px;
+  line-height:30px;
+
+}
+nav{
+  background-color: #c45131;
+  color: #fff;
+}
+
+
+
+form{
+  padding-left: 20px;
+}
+
+@media (min-width: 600px) {
+  .container{
+    box-shadow: 0 0 5px grey;
+    border-radius: 5px;
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 90%;
+  }
+}
+
+@media (min-width: 1200px) {
+
+}

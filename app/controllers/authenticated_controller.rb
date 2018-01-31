@@ -1,10 +1,11 @@
 class AuthenticatedController < ApplicationController
   before_action :authenticate_user!
 
-  # Be aware, scoping is also verified.
   # This can be skipped with 'skip_authorization' if there is nothing to
   # authorize. In that case, you might consider not placing it here.
   after_action :verify_authorized
+  # This can be skipped with 'skip_policy_scope' if there is nothing to scope on
+  after_action :verify_policy_scoped
 
   def protected_index
     p current_user

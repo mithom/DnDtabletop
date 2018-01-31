@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 
   get 'application/index'
   get 'authenticated/protected_index'
+  get 'about', to: "application#about"
+  get 'features', to: 'application#features'
 end

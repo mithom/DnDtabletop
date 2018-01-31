@@ -33,6 +33,10 @@ gem 'redis', '~> 3.0'
 gem 'devise'
 # Use pundit for authorization
 gem 'pundit'
+# materialize to style our webpages
+gem 'materialize-sass'
+# Materialize icons
+gem 'material_icons'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
