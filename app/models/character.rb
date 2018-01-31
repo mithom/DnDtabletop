@@ -21,7 +21,7 @@ class Character
 
   field :lvl, type: Array, default: [] # Array of hashes with keys: :lvl & :class
 
-  def character_lvl #read_only attr
+  def character_lvl # read_only attr
     char_lvl = 0
     lvl.each do |class_lvl|
       char_lvl += class_lvl[:lvl]
