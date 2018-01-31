@@ -21,7 +21,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* start DB service: "sudo service mongod start"
+* start DB service: "sudo mongod --dbpath /var/lib/mongodb --auth"
 more info: https://docs.mongodb.com/master/tutorial/install-mongodb-on-ubuntu/
 
 * needed ENV_VAR's in development

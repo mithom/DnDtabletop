@@ -30,14 +30,14 @@ development:
         password: <%= ENV['DNDTABLETOP_DB_DEFAULT_PASSWORD'] %>
 
         # The user's database roles.
-        # roles:
-        #   - 'dbOwner'
+        #roles:
+        #  - 'root'
 
         # Change the default authentication mechanism. Valid options are: :scram,
         # :mongodb_cr, :mongodb_x509, and :plain. Note that all authentication
         # mechanisms require username and password, with the exception of :mongodb_x509.
         # Default on mongoDB 3.0 is :scram, default on 2.4 and 2.6 is :plain.
-        # auth_mech: :scram
+        # auth_mech: :plain
 
         # The database or source to authenticate the user against.
         # (default: the database specified above or admin)
