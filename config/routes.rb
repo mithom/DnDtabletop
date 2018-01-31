@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   # User creation & management routes
   devise_for :users
 
@@ -7,4 +6,5 @@ Rails.application.routes.draw do
   root to: 'application#index'
 
   get 'application/index'
+  get 'authenticated/protected_index'
 end
