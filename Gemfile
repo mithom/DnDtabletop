@@ -32,7 +32,10 @@ gem 'redis', '~> 3.0'
 # Use devise for authentication, account creation, confirmation, ...
 gem 'devise'
 # Use pundit for authorization
-gem 'pundit'
+# gem 'pundit'
+# True using the master branch version for added functionality
+gem 'pundit', git: 'https://github.com/varvet/pundit'
+
 # materialize to style our webpages
 gem 'materialize-sass'
 # Materialize icons

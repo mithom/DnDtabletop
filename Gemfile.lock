@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/varvet/pundit
+  revision: 1036bd7cfbedc6579a09faf36e3c0b48dc34d908
+  specs:
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -109,9 +116,7 @@ GEM
     orm_adapter (0.5.0)
     public_suffix (3.0.1)
     puma (3.11.2)
-    pundit (1.1.0)
-      activesupport (>= 3.0.0)
-    rack (2.0.3)
+    rack (2.0.4)
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
     rails (5.1.4)
@@ -210,7 +215,7 @@ DEPENDENCIES
   materialize-sass
   mongoid (~> 6.1.0)
   puma (~> 3.7)
-  pundit
+  pundit!
   rails (~> 5.1.4)
   redis (~> 3.0)
   sass-rails (~> 5.0)
