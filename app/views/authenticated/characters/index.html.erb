@@ -1,0 +1,18 @@
+<h1>Listing characters from <%= current_user.email %></h1> <!-- TODO: replace by first & last name -->
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>LvL</th>
+    <th>class</th>
+  </tr>
+
+  <% @characters.each do |character| %>
+      <tr>
+        <td><%= character.name %></td>
+        <td><%= character.character_lvl %></td>
+        <td><%= character.character_class.collect { |c_class| c_class.name }.join(' + ') %></td>
+        <td><%= link_to 'Show', character_path(character) %></td>
+      </tr>
+  <% end %>
+</table>

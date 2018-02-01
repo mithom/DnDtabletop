@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   get 'user/profile', to: "authenticated#profile"
   get 'about', to: "application#about"
   get 'features', to: 'application#features'
+  scope 'user', module: 'authenticated' do
+    resources :characters
+  end
 end
