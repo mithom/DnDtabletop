@@ -6,7 +6,9 @@
 <p>
   <strong>Lvl / class:</strong>
   <br>
-  <%= @character.lvl.collect { |class_lvl| CharacterClass.find(class_lvl[:class]).name + ": " + class_lvl[:lvl].to_s }.join('<br>').html_safe %>
+  <% class_lvl_strings(@character).each do |lvl_String| %>
+    <p> <%= lvl_String %>
+  <% end %>
 </p>
 
 <%= link_to 'Back', characters_path %>

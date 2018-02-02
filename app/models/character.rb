@@ -24,7 +24,7 @@ class Character
     char_lvl
   end
 
-  has_and_belongs_to_many :character_class, inverse_of: nil
+  has_and_belongs_to_many :character_classes, inverse_of: nil
   embedded_in :user
   has_and_belongs_to_many :character_feats, inverse_of: nil
 end
