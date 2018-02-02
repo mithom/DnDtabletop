@@ -7,12 +7,5 @@
     <th>class</th>
   </tr>
 
-  <% @characters.each do |character| %>
-      <tr>
-        <td><%= character.name %></td>
-        <td><%= character.character_lvl %></td>
-        <td><%= classes_string(character) %></td>
-        <td><%= link_to 'Show', character_path(character) %></td>
-      </tr>
-  <% end %>
+  <%= render partial: 'character_li', collection: @characters, as: :character %>
 </table>
