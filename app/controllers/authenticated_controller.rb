@@ -10,7 +10,6 @@ class AuthenticatedController < ApplicationController
   def profile
     skip_policy_scope
     skip_authorization
-    p current_user
     #     if user_signed_in?
     #       test_class = CharacterClass.create!(name: 'test_class')
     #       multi_class = CharacterClass.create!(name: 'multi_class')

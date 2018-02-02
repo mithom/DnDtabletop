@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   scope 'user', module: 'authenticated' do
     resources :characters
   end
+
+  scope module: 'application' do
+    resources :character_classes, path: 'classes'
+  end
 end

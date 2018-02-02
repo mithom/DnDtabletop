@@ -1,0 +1,7 @@
+<p>
+  <strong>Name:</strong>
+  <%= @character_class.name %>
+  <%= render partial: 'class_feat', collection: @character_class.class_feats %>
+</p>
+
+<%= link_to 'Back', character_classes_path %>
