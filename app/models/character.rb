@@ -1,8 +1,6 @@
 class Character
   include Mongoid::Document
   include Mongoid::Timestamps # We can track usage over time
-  # TODO: add validation for classes matching classes in lvl
-  # TODO: add validation for lvl format
 
   field :name, type: String
 
