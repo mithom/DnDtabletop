@@ -14,18 +14,12 @@ class Character
   field :wisdom, type: Integer
   field :charisma, type: Integer
 
-  field :lvl, type: Array, default: [] # Array of hashes with keys: :lvl & :class
-
   # read_only attr
   def character_lvl
-    char_lvl = 0
-    lvl.each do |class_lvl|
-      char_lvl += class_lvl[:lvl]
-    end
-    char_lvl
+    class_lvls.sum(:lvl)
   end
 
-  has_and_belongs_to_many :character_classes, inverse_of: nil
   embedded_in :user
   has_and_belongs_to_many :character_feats, inverse_of: nil
+  embeds_many :class_lvls
 end

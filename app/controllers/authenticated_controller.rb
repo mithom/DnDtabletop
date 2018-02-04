@@ -10,14 +10,16 @@ class AuthenticatedController < ApplicationController
   def profile
     skip_policy_scope
     skip_authorization
-    #     if user_signed_in?
-    #       test_class = CharacterClass.create!(name: 'test_class')
-    #       multi_class = CharacterClass.create!(name: 'multi_class')
-    #       char = Character.create!(name: 'tester', strength: 1, dexterity: 2, constitution: 3,
-    #                                intelligence: 4, wisdom: 5, charisma: 6,
-    #                                lvl: [{lvl: 6, class: test_class.id}, {lvl: 4, class: multi_class.id}],
-    #                                user: current_user)
-    #       p char.character_lvl
-    #     end
+    # if user_signed_in?
+    #   test_class = CharacterClass.create!(name: 'test_class')
+    #   multi_class = CharacterClass.create!(name: 'multi_class')
+    #   char = Character.create!(name: 'tester', strength: 1, dexterity: 2, constitution: 3,
+    #                            intelligence: 4, wisdom: 5, charisma: 6,
+    #                            user: current_user)
+    #
+    #   test = ClassLvl.create!(lvl: 6, character: char, character_class_id: test_class.id)
+    #   testing = ClassLvl.create!(lvl: 4, character: char, character_class_id: multi_class.id)
+    # end
   end
+
 end
