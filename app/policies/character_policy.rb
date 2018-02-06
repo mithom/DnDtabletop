@@ -1,5 +1,4 @@
 class CharacterPolicy < ApplicationPolicy
-
   def index?
     # Always true, since we know we are logged in, and everyone can access this at the moment.
     true

@@ -9,6 +9,39 @@
   <% class_lvl_strings(@character).each do |lvl_String| %>
     <p> <%= lvl_String %>
   <% end %>
+  <br>
+  <table>
+    <row>
+      <td>strength</td>
+      <td><%= @character.strength %></td>
+      <td><%= Character.modifier(@character.strength) %></td>
+    </row>
+    <row>
+      <td>dexterity</td>
+      <td><%= @character.dexterity %></td>
+      <td><%= Character.modifier(@character.dexterity) %></td>
+    </row>
+    <row>
+      <td>constitution</td>
+      <td><%= @character.constitution %></td>
+      <td><%= Character.modifier(@character.constitution) %></td>
+    </row>
+    <row>
+      <td>intelligence</td>
+      <td><%= @character.intelligence %></td>
+      <td><%= Character.modifier(@character.intelligence) %></td>
+    </row>
+    <row>
+      <td>wisdom</td>
+      <td><%= @character.wisdom %></td>
+      <td><%= Character.modifier(@character.wisdom) %></td>
+    </row>
+    <row>
+      <td>charisma</td>
+      <td><%= @character.charisma %></td>
+      <td><%= Character.modifier(@character.charisma) %></td>
+    </row>
+  </table>
 </p>
 
 <%= link_to 'Back', characters_path %>
