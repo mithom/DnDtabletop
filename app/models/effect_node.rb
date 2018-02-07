@@ -8,12 +8,16 @@ class EffectNode
     find_effects
   end
 
-  def result
+  def result_
     result = 0
     @effects.each do |feat|
       result += @character.instance_eval(feat.effect_function)
     end
     result
+  end
+
+  def result
+    @result ||= result_
   end
 
   private

@@ -2,7 +2,7 @@ class Character
   include Mongoid::Document
   include Mongoid::Timestamps # We can track usage over time
   include Mongoid::Attributes::Dynamic # This will store which path is chosen for the class and race.
-  include Effects
+  include EffectNodes
 
   field :name, type: String
 
@@ -14,12 +14,12 @@ class Character
   field :wisdom, type: Integer
   field :charisma, type: Integer
 
-  add_effects :strength
-  add_effects :dexterity
-  add_effects :constitution
-  add_effects :intelligence
-  add_effects :wisdom
-  add_effects :charisma
+  add_effect_node :strength
+  add_effect_node :dexterity
+  add_effect_node :constitution
+  add_effect_node :intelligence
+  add_effect_node :wisdom
+  add_effect_node :charisma
 
   # read_only attr
   def character_lvl
@@ -29,6 +29,11 @@ class Character
   def self.modifier(stat)
     ((stat-10)/2).floor
   end
+
+  def attack_bonus
+    strength # TODO: make dependable on weapon, finesse -> allow dex
+  end
+  add_effect_node :attack_bonus
 
   embedded_in :user
   has_and_belongs_to_many :character_feats, inverse_of: nil, index: true

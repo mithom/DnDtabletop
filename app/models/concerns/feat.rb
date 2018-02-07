@@ -8,12 +8,7 @@ module Feat
     field :description, type: String
     field :minimum_lvl, type: Integer
 
-    # Implement this in code instea of db maybe?
-    field :effect_function, type: String
-    # Executing data as a function is very sensitive.
-    attr_readonly :effect_function
-
-    field :effect_node, type: String
+    embeds_many :effects, as: :effectable
 
     # Indexes make queries go fast for (little) slower insertions
     # this is pretty static data, so <3 indexes

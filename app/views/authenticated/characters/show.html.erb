@@ -41,6 +41,10 @@
       <td><%= @character.charisma %></td>
       <td><%= Character.modifier(@character.charisma) %></td>
     </row>
+    <row>
+      <td>attack bonus</td>
+      <td colspan="2"><%= @character.attack_bonus %></td>
+    </row>
   </table>
 </p>
 

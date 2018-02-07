@@ -53,8 +53,8 @@ Rails.application.configure do
 
   # Configurating Bullet, to warn us for N+1 problems
   config.after_initialize do
-    # Enable bullet in your application
-    Bullet.enable = true
+    # Enable bullet in your application, this doubles each query!
+    Bullet.enable = false
     # Give a javascript popup warning
     Bullet.alert = true
     # Give a warning in the rails logs
