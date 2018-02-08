@@ -35,6 +35,11 @@ class Character
   end
   add_effect_node :attack_bonus
 
+  def speed
+    race.speed
+  end
+  add_effect_node :speed
+
   embedded_in :user
   has_and_belongs_to_many :character_feats, inverse_of: nil, index: true
   embeds_many :class_lvls
