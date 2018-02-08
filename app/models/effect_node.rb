@@ -22,23 +22,31 @@ class EffectNode
 
   private
 
-  # TODO: optimise so that feats or only querried once for the same character
   def find_effects
-    @character.character_feats.lvl_req(@character).each do |feat|
+    # RequestStore prevents multiple database calls for the same feats here (in case of multiple effect_nodes)
+    RequestStore.store[:"character_feats.#{@character.id}"] ||= @character.character_feats.lvl_req(@character).to_a
+    RequestStore.store[:"character_feats.#{@character.id}"].each do |feat|
       feat.effects.where(effect_node: name).each do |effect|
         @effects << effect
       end
     end
-    @character.race.racial_feats.lvl_req(@character).each do |feat|
+
+    RequestStore.store[:"racial_feats.#{@character.id}"]||= @character.race.racial_feats.lvl_req(@character).to_a
+    RequestStore.store[:"racial_feats.#{@character.id}"].each do |feat|
       feat.effects.where(effect_node: name).each do |effect|
         @effects << effect
       end
     end
-    @character.class_lvls.each do |class_lvl|
-      class_lvl.character_class.class_feats.lvl_req(class_lvl).each do |feat|
-        feat.effects.where(effect_node: name).each do |effect|
-          @effects << effect
-        end
+
+    unless RequestStore.store[:"class_feats.#{@character.id}"].present?
+      RequestStore.store[:"class_feats.#{@character.id}"] = []
+      @character.class_lvls.each do |class_lvl|
+        RequestStore.store[:"class_feats.#{@character.id}"] += class_lvl.character_class.class_feats.lvl_req(class_lvl)
+      end
+    end
+    RequestStore.store[:"class_feats.#{@character.id}"].each do |feat|
+      feat.effects.where(effect_node: name).each do |effect|
+        @effects << effect
       end
     end
   end
