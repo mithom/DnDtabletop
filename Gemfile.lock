@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/clustertv/mongoid-enum
+  revision: bc11d9a5c5e22f950eec9e6f7a9c6f2d9442d0bb
+  specs:
+    mongoid-enum (0.4.0)
+      mongoid (>= 5.0)
+
+GIT
   remote: https://github.com/varvet/pundit
   revision: 1036bd7cfbedc6579a09faf36e3c0b48dc34d908
   specs:
@@ -221,6 +228,7 @@ DEPENDENCIES
   material_icons
   materialize-sass
   mongoid (~> 6.1.0)
+  mongoid-enum!
   puma (~> 3.7)
   pundit!
   rails (~> 5.1.4)

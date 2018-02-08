@@ -37,6 +37,8 @@ gem 'devise'
 gem 'pundit', git: 'https://github.com/varvet/pundit'
 # adding a global request storage that is safe in multi threaded environments
 gem 'request_store'
+# persistent enums for mongoid
+gem 'mongoid-enum', git: 'https://github.com/clustertv/mongoid-enum'
 
 # materialize to style our webpages
 gem 'materialize-sass'

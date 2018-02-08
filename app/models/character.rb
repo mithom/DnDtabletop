@@ -30,12 +30,17 @@ class Character
     ((stat-10)/2).floor
   end
 
+  def encumberred?
+    inventory.carry_weight > 15 * strength
+  end
+
   def attack_bonus
     strength # TODO: make dependable on weapon, finesse -> allow dex
   end
   add_effect_node :attack_bonus
 
   def speed
+    # TODO: -10 speed if not enough str for equipped armor
     race.speed
   end
   add_effect_node :speed
@@ -44,4 +49,5 @@ class Character
   has_and_belongs_to_many :character_feats, inverse_of: nil, index: true
   embeds_many :class_lvls
   belongs_to :race, inverse_of: nil, index: true
+  embeds_one :inventory
 end
