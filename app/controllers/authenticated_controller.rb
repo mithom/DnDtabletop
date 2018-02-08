@@ -21,8 +21,10 @@ class AuthenticatedController < ApplicationController
     #   test = ClassLvl.create!(lvl: 2, character: char, character_class_id: test_class.id)
     #   testing = ClassLvl.create!(lvl: 9, character: char, character_class_id: multi_class.id)
     # end
-    # RacialFeat.create!(name: 'str bonus', race: current_user.characters.first.race,
-    #                    description: 'this test race gains 2 bonus str at lvl 2', minimum_lvl: 2,
-    #                    effect_node: 'strength', effect_function: '[0, self.class.modifier(intelligence)].max')
+    # race_feat = RacialFeat.create!(name: 'str bonus', race: current_user.characters.first.race,
+    #                    description: 'this test race gains 2 bonus str at lvl 2', minimum_lvl: 2)
+    # Effect.create!(effect_node: 'strength', effect_function: '[0, self.class.modifier(intelligence)].max',
+    #                effectable: race_feat)
+
   end
 end

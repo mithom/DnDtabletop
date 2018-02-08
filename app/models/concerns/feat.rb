@@ -12,7 +12,6 @@ module Feat
 
     # Indexes make queries go fast for (little) slower insertions
     # this is pretty static data, so <3 indexes
-    index effect_node: 1
     index minimum_lvl: 1
   end
 end

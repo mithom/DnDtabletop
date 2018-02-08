@@ -10,8 +10,8 @@ class EffectNode
 
   def result_
     result = 0
-    @effects.each do |feat|
-      result += @character.instance_eval(feat.effect_function)
+    @effects.each do |effect|
+      result += @character.instance_eval(effect.effect_function)
     end
     result
   end
@@ -22,16 +22,23 @@ class EffectNode
 
   private
 
+  # TODO: optimise so that feats or only querried once for the same character
   def find_effects
-    @character.character_feats.where(effect_node: name).each do |feat|
-      @effects << feat
+    @character.character_feats.lvl_req(@character).each do |feat|
+      feat.effects.where(effect_node: name).each do |effect|
+        @effects << effect
+      end
     end
-    @character.race.racial_feats.lvl_req(@character).where(effect_node: name).each do |feat|
-      @effects << feat
+    @character.race.racial_feats.lvl_req(@character).each do |feat|
+      feat.effects.where(effect_node: name).each do |effect|
+        @effects << effect
+      end
     end
     @character.class_lvls.each do |class_lvl|
-      class_lvl.character_class.class_feats.lvl_req(class_lvl).where(effect_node: name).each do |feat|
-        @effects << feat
+      class_lvl.character_class.class_feats.lvl_req(class_lvl).each do |feat|
+        feat.effects.where(effect_node: name).each do |effect|
+          @effects << effect
+        end
       end
     end
   end
