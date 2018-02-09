@@ -1,3 +1,5 @@
-class Tool < Item
+module Items
+  class Tool < Item
 
+  end
 end

@@ -25,6 +25,6 @@ class AuthenticatedController < ApplicationController
     #                    description: 'this test race gains 2 bonus str at lvl 2', minimum_lvl: 2)
     # Effect.create!(effect_node: 'strength', effect_function: '[0, self.class.modifier(intelligence)].max',
     #                effectable: race_feat)
-
+    # Inventory.create!(character: char)
   end
 end

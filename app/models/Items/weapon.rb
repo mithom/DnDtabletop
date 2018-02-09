@@ -1,6 +1,8 @@
-class Weapon < Item
+module Items
+  class Weapon < Item
 
-  field :equippable, type: Boolean, default: true, overwrite: true
-  field :equipped, type: Boolean
+    field :equippable, type: Boolean, default: true, overwrite: true
+    field :equipped, type: Boolean
 
+  end
 end

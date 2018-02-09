@@ -7,5 +7,6 @@ class ItemAmount
     amount * item.weight
   end
 
+  embedded_in :inventory
   belongs_to :item, index: true
 end

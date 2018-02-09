@@ -40,8 +40,7 @@ class Character
   add_effect_node :attack_bonus
 
   def speed
-    # TODO: -10 speed if not enough str for equipped armor
-    race.speed
+    race.speed - inventory.item_amounts.armors.select{|armor| armor.equipped? }.first.try(:speed_penalty, self).to_i
   end
   add_effect_node :speed
 

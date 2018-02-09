@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 # We use mongodb, so we need to use mongo_mapper or mongoid
-gem 'mongoid', '~> 6.1.0'
+gem 'mongoid', '~> 6.3.0'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

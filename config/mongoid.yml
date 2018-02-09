@@ -112,7 +112,7 @@ development:
 
     # Preload all models in development, needed when models use
     # inheritance. (default: false)
-    # preload_models: false
+    preload_models: true
 
     # Raise an error when performing a #find and the document is not found.
     # (default: true)
@@ -144,7 +144,7 @@ development:
 
     # Application name that is printed to the mongodb logs upon establishing a
     # connection in server versions >= 3.4. Note that the name cannot exceed 128 bytes.
-    # app_name: MyApplicationName
+    app_name: LifeOfDice
 test:
   clients:
     default:

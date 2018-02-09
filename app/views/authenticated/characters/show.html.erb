@@ -50,6 +50,10 @@
         <td>speed</td>
         <td colspan="2"><%= @character.speed %></td>
       </tr>
+      <tr>
+        <td>can carry?</td>
+        <td colspan="2"><%= ! @character.encumberred? %></td>
+      </tr>
     </tbody>
   </table>
 </p>
