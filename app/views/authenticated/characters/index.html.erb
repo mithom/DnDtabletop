@@ -1,11 +1,13 @@
-<h1>Listing characters from <%= current_user.email %></h1> <!-- TODO: replace by first & last name -->
+<h1 class="center-align">Listing characters from <%= (current_user.first_name + '&nbsp;'+ current_user.last_name).html_safe %></h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>LvL</th>
-    <th>class</th>
-  </tr>
+<div id="table80">
+  <div class="collection with-header">
+    <div class="row collection-header remove_padding_bot collection_title">
+      <div class="col s1">Lvl</div>
+      <div class="col s4">Name</div>
+      <div class="col s7">Class</div>
+    </div>
 
-  <%= render partial: 'character_li', collection: @characters, as: :character %>
-</table>
+    <%= render partial: 'character_li', collection: @characters, as: :character %>
+  </div>
+</div>
