@@ -8,4 +8,5 @@ class CharacterClass
   field :name, type: String
 
   embeds_many :class_feats
+  accepts_nested_attributes_for :class_feats
 end

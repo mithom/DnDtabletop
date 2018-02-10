@@ -40,4 +40,6 @@ class User
   field :last_name, type: String, default: ''
 
   embeds_many :characters
+
+  accepts_nested_attributes_for :characters
 end

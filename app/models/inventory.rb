@@ -13,17 +13,14 @@ class Inventory
 
   embeds_many :item_amounts do
     def armors
-      where('item._type': 'Armor')
+      @target.select { |item_amount| item_amount.item._type == 'Items::Armor' }
     end
 
-    def weapons
-      where('item._type': 'Weapon')
-    end
-
-    def tools
-      where('item._type': 'Tool')
+    def equipped
+      @target.select{|armor| armor.item.equipped? }
     end
   end
-
   embedded_in :character
+
+  accepts_nested_attributes_for :item_amounts
 end

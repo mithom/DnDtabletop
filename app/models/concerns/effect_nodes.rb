@@ -14,6 +14,7 @@ module EffectNodes
       define_method "#{field}" do
         old.bind(self).() + eval("#{field}_node").result
       end
+
     end
   end
 

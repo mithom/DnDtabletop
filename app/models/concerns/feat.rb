@@ -9,6 +9,7 @@ module Feat
     field :minimum_lvl, type: Integer
 
     embeds_many :effects, as: :effectable
+    accepts_nested_attributes_for :effects
 
     # Indexes make queries go fast for (little) slower insertions
     # this is pretty static data, so <3 indexes

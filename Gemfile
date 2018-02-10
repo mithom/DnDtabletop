@@ -39,6 +39,10 @@ gem 'pundit', git: 'https://github.com/varvet/pundit'
 gem 'request_store'
 # persistent enums for mongoid
 gem 'mongoid-enum', git: 'https://github.com/clustertv/mongoid-enum'
+# easy CRUD operations & visualisation
+gem 'rails_admin', '~> 1.2'
+
+gem 'kaminari-mongoid'
 
 # materialize to style our webpages
 gem 'materialize-sass'
