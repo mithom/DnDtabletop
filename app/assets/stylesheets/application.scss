@@ -90,6 +90,24 @@ form {
   padding: 5px auto;
 }
 
+.container_Login{
+  width: 400px;
+  border: 3px solid #000;
+  border-radius: 20px;
+  margin: auto;
+  padding-bottom: 12px !important;
+}
+.padding_right20{
+  padding-right: 20px;
+}
+.login{
+  padding: 0 !important;
+  margin: 0!important;
+  width: 100%;
+}
+.login_button{
+  margin: auto;
+}
 @media (max-width: 600px) {
   .collection_title{
     font-size: 15px;
