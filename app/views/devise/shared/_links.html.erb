@@ -2,11 +2,13 @@
   <%- if controller_name != 'sessions' %>
     <%- if controller_name != 'registrations' %>
       <div class="col s4 center-align">
+        <%= link_to "Log in", new_session_path(resource_name), class: "devise_links" %>
+      </div>
     <% else %>
       <div class="col s6 center-align">
+        <%= link_to "Log in", new_session_path(resource_name), class: "devise_links" %>
+      </div>
     <% end -%>
-    <%= link_to "Log in", new_session_path(resource_name), class: "devise_links" %>
-    </div>
   <% end -%>
 
 
@@ -26,10 +28,12 @@
   <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
     <%- if controller_name != 'registrations' %>
       <div class="col s4 center-align">
+        <%= link_to "resend confirmation mail", new_confirmation_path(resource_name), class: "devise_links" %>
+      </div>
     <% else %>
       <div class="col s6 center-align">
+        <%= link_to "resend confirmation mail", new_confirmation_path(resource_name), class: "devise_links" %>
+      </div>
     <% end -%>
-    <%= link_to "resend confirmation mail", new_confirmation_path(resource_name), class: "devise_links" %>
-    </div>
   <% end -%>
 </div>
