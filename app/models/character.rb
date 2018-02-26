@@ -60,8 +60,11 @@ class Character
   end
   add_effect_node :attack_bonus
 
+  def equipped_armor
+    Inventory.equipped(inventory.armors).first
+  end
   def speed
-    @speed ||= race.speed - Inventory.equipped(inventory.armors).first.try(:item).try(:speed_penalty, self).to_i
+    @speed ||= race.speed - equipped_armor.try(:item).try(:speed_penalty, self).to_i
   end
   add_effect_node :speed
 
@@ -70,8 +73,13 @@ class Character
   end
 
   def ac
-    # TODO: implement
+    if equipped_armor
+      equipped_armor.item.calculated_ac(self)
+    else
+      10 + dexterity
+    end
   end
+  add_effect_node :ac
 
   def character_class_lvls
     RequestStore.store[:"class_lvls.#{id}"] ||= class_lvls.includes(:character_class)

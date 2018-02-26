@@ -15,5 +15,18 @@ module Items
     def speed_penalty(character)
       heavy? && character.strength < strength ? 10 : 0
     end
+
+    def calculated_ac(character)
+      case armor_type
+        when LIGHT
+          ac + Character.modifier(character.dexterity)
+        when MEDIUM
+          ac + [equipped_armor.item.max_dex, Character.modifier(dexterity)].min
+        when HEAVY
+          ac
+        else
+          throw "invalid armor type #{armor_type}"
+      end
+    end
   end
 end

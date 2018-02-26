@@ -45,6 +45,10 @@
     <td colspan="2"><%= @character.attack_bonus %></td>
   </tr>
   <tr>
+    <td>ac</td>
+    <td colspan="2"><%= @character.ac %></td>
+  </tr>
+  <tr>
     <td>speed</td>
     <td colspan="2"><%= @character.speed %></td>
   </tr>
@@ -52,6 +56,31 @@
     <td>can carry? (carried weight)</td>
     <td><%= ! @character.encumberred? %></td>
     <td><%= @character.inventory.carry_weight %></td>
+  </tr>
+  <tr>
+    <td>money</td>
+    <td><%= @character.inventory.platinum %></td>
+    <td>platinum</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= @character.inventory.gold %></td>
+    <td>gold</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= @character.inventory.electrum %></td>
+    <td>electrum</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= @character.inventory.silver %></td>
+    <td>silver</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= @character.inventory.copper %></td>
+    <td>copper</td>
   </tr>
   </tbody>
 </table>
