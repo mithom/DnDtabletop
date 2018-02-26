@@ -1,9 +1,6 @@
 class Inventory
   include Mongoid::Document
-
-  def carry_weight
-    item_amounts.collect(&:weight).sum
-  end
+  attr_reader :carry_weight
 
   field :platinum, type: Integer, default: 0
   field :gold, type: Integer, default: 0
@@ -11,14 +8,28 @@ class Inventory
   field :silver, type: Integer, default: 0
   field :copper, type: Integer, default: 0
 
-  embeds_many :item_amounts do
-    def armors
-      @target.select { |item_amount| item_amount.item._type == 'Items::Armor' }
-    end
+  embeds_many :item_amounts
 
-    def equipped
-      @target.select{|armor| armor.item.equipped? }
-    end
+  def carry_weight
+    @carry_weight ||= items.collect(&:weight).sum
+  end
+
+  def armors
+    items.select { |item_amount| item_amount.item._type == 'Items::Armor' }
+  end
+
+  def weapons
+    items.select { |item_amount| item_amount.item._type == 'Items::Weapon' }
+  end
+
+  def self.equipped(items)
+    items.select { |item_amount| item_amount.try(:equipped) }
+  end
+
+  private
+
+  def items
+    RequestStore.store[:"items.#{id}"] ||= item_amounts.includes(:item).to_a
   end
   embedded_in :character
 

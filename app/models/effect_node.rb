@@ -5,10 +5,10 @@ class EffectNode
     @name      = name.to_s
     @character = character
     @effects   = []
-    find_effects
   end
 
   def result_
+    find_effects
     result = 0
     @effects.each do |effect|
       result += @character.instance_eval(effect.effect_function)
@@ -31,7 +31,7 @@ class EffectNode
       end
     end
 
-    RequestStore.store[:"racial_feats.#{@character.id}"]||= @character.race.racial_feats.lvl_req(@character).to_a
+    RequestStore.store[:"racial_feats.#{@character.id}"] ||= @character.race.racial_feats.lvl_req(@character).to_a
     RequestStore.store[:"racial_feats.#{@character.id}"].each do |feat|
       feat.effects.where(effect_node: name).each do |effect|
         @effects << effect
@@ -46,6 +46,13 @@ class EffectNode
     end
     RequestStore.store[:"class_feats.#{@character.id}"].each do |feat|
       feat.effects.where(effect_node: name).each do |effect|
+        @effects << effect
+      end
+    end
+
+    Inventory.equipped(@character.inventory.items).each do |item|
+      # TODO: optimize with database filter
+      item.item.item_properties.select { |item_prop| item_prop.effect_node == name }.each do |effect|
         @effects << effect
       end
     end

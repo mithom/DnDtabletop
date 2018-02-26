@@ -9,4 +9,12 @@ class CharacterClass
 
   embeds_many :class_feats
   accepts_nested_attributes_for :class_feats
+
+  rails_admin do
+    configure :class_feats do
+      pretty_value do
+        bindings[:object].send(:racial_feats).map { |v| "#{v.name}: " + v.effects.collect(&:name).join(', ') }.join(' <br />').html_safe
+      end
+    end
+  end
 end

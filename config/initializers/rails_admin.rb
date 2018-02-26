@@ -1,6 +1,5 @@
 RailsAdmin.config do |config|
-
-  config.main_app_name = "Life of Dice"
+  config.main_app_name = 'Life of Dice'
   ### Popular gems integration
 
   ## == Devise ==

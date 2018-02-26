@@ -3,9 +3,7 @@ class Character
   include Mongoid::Timestamps # We can track usage over time
   include Mongoid::Attributes::Dynamic # This will store which path is chosen for the class and race.
   include EffectNodes
-
-  # This is a constant because it is all capitals
-  PROFICIENCY_BONUS = [2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6]
+  include Constants
 
   field :name, type: String
 
@@ -24,11 +22,26 @@ class Character
   add_effect_node :wisdom
   add_effect_node :charisma
 
-  rails_admin do
-    # TODO: find solution for this
-    edit do
-      exclude_fields :strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma
+  add_effect_node :weapon_proficiencies, type: :list, old: false
+  add_effect_node :armor_proficiencies, type: :list, old: false
+  add_effect_node :tool_proficiencies, type: :list, old: false
+
+  def has_proficiency?(item)
+    return false unless item
+    case item.class
+    when Items::Armor
+      armor_proficiencies.include? item.armor_type.to_sym
+    when Items::Weapon
+      weapon_proficiencies.include? item.weapon_type.to_sym
+    when Items::Tool
+      tool_proficiencies.include? item.tool_type.to_sym
+    else
+      false
     end
+  end
+
+  def self.modifier(stat)
+    ((stat - 10) / 2).floor
   end
 
   # read_only attr
@@ -36,21 +49,19 @@ class Character
     class_lvls.sum(:lvl)
   end
 
-  def self.modifier(stat)
-    ((stat-10)/2).floor
-  end
-
   def encumberred?
     inventory.carry_weight > 15 * strength
   end
 
   def attack_bonus
-    strength # TODO: make dependable on weapon, finesse -> allow dex
+    attack_bonus = self.class.modifier(strength) # TODO: make dependable on weapon, finesse -> allow dex
+    attack_bonus += proficiency_bonus if has_proficiency?(Inventory.equipped(inventory.weapons).first.item)
+    attack_bonus
   end
   add_effect_node :attack_bonus
 
   def speed
-    race.speed - inventory.item_amounts.armors.select{|armor| armor.equipped }.first.try(:item).try(:speed_penalty, self).to_i
+    @speed ||= race.speed - Inventory.equipped(inventory.armors).first.try(:item).try(:speed_penalty, self).to_i
   end
   add_effect_node :speed
 
@@ -59,7 +70,11 @@ class Character
   end
 
   def ac
+    # TODO: implement
+  end
 
+  def character_class_lvls
+    RequestStore.store[:"class_lvls.#{id}"] ||= class_lvls.includes(:character_class)
   end
 
   embedded_in :user
@@ -70,4 +85,16 @@ class Character
 
   accepts_nested_attributes_for :class_lvls, :inventory
 
+  rails_admin do
+    configure :character_feats do
+      pretty_value do
+        bindings[:object].send(:character_feats).map { |v| "#{v.name}: " + v.effects.collect(&:name).join(', ') }.join(' <br />').html_safe
+      end
+    end
+
+    # TODO: find solution for this
+    edit do
+      exclude_fields :strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma
+    end
+  end
 end

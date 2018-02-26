@@ -6,7 +6,6 @@ module Feat
   included do
     field :name, type: String
     field :description, type: String
-    field :minimum_lvl, type: Integer
 
     embeds_many :effects, as: :effectable
     accepts_nested_attributes_for :effects

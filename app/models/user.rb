@@ -1,5 +1,8 @@
 class User
   include Mongoid::Document
+  include Mongoid::Enum
+  include Constants::UserRoles
+
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
@@ -38,8 +41,17 @@ class User
   ## non devise parameters
   field :first_name, type: String, default: ''
   field :last_name, type: String, default: ''
+  enum :roles, USER_ROLES, default: [FREE], multiple: true
 
   embeds_many :characters
 
   accepts_nested_attributes_for :characters
+
+  rails_admin do
+    configure :characters do
+      pretty_value do
+        bindings[:object].send(:characters).map { |v| "#{v.name}: " + v.to_json }.join(' <br /><br />').html_safe
+      end
+    end
+  end
 end
