@@ -31,3 +31,7 @@
 
 en:
   hello: "Hello world"
+  pundit:
+    default: 'your action was not allowed, contact support for more information!'
+    character_policy:
+      new?: 'as a free user, you cannot make more than 2 characters!'

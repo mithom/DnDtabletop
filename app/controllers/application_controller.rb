@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery with: :exception
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   # This controller should only contain publicly available functions.
 
@@ -20,5 +21,16 @@ class ApplicationController < ActionController::Base
     else
       super
     end
+  end
+
+  private
+
+  def user_not_authorized(exception)
+    # TODO: create custom error messages & redirect to buying page
+    # https://github.com/varvet/pundit#creating-custom-error-messages
+    policy_name = exception.policy.class.to_s.underscore
+
+    flash[:error] = t "#{policy_name}.#{exception.query}", scope: "pundit", default: :default
+    redirect_to(user_profile_path || root_path)
   end
 end

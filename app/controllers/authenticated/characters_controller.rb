@@ -12,5 +12,14 @@ module Authenticated
       @character = authorize current_user.characters.find(params[:id])
       skip_policy_scope
     end
+
+    def create
+
+    end
+
+    def new
+      authorize Character
+      skip_policy_scope
+    end
   end
 end
