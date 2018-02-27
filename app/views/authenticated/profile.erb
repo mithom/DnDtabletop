@@ -1,12 +1,14 @@
 <h1>Protected page</h1>
 <%- if current_user.free? %>
+  <p>
   you can access all the free content
+  </p>
 <% end %>
 <%- if current_user.subscriber? %>
-  you can access all payed content
+  <p>you can access all payed content</p>
 <% end %>
 <%- if current_user.admin? %>
-  you are an admin and can do everything
+  <p>you are an admin and can do everything</p>
 <% end %>
 <%= notice %>
 <%= alert %>
