@@ -8,8 +8,7 @@ class CharacterPolicy < ApplicationPolicy
   end
 
   def show?
-    # Doesn't make much sense to check embedded documents
-    true
+    @user.characters.include? @record
   end
 
   def new?
@@ -21,4 +20,9 @@ class CharacterPolicy < ApplicationPolicy
     # As a free user, you can only have 2 characters. (probably need to be reduced to 1)
     @user.subscriber? || @user.admin? || @user.characters.count < 2
   end
+
+  def permitted_attributes
+    [:strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma, :name]
+  end
+
 end

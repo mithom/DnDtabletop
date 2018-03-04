@@ -4,11 +4,8 @@ class AuthenticatedController < ApplicationController
   # This can be skipped with 'skip_authorization' if there is nothing to
   # authorize. In that case, you might consider not placing it here.
   after_action :verify_authorized
-  # This can be skipped with 'skip_policy_scope' if there is nothing to scope on
-  after_action :verify_policy_scoped
 
   def profile
-    skip_policy_scope
     skip_authorization
     ## just a function to populate your database during testing
     # if user_signed_in?
