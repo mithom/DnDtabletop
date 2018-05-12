@@ -6,6 +6,7 @@ class CharacterClass
   end
 
   field :name, type: String
+  field :hit_dice, type:  Integer
 
   embeds_many :class_feats
   accepts_nested_attributes_for :class_feats

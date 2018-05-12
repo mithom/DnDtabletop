@@ -1,7 +1,8 @@
 <%= link_to character_path(character), class: 'collection-item horizontal_centre' do %>
 <div class=" character_li row remove_padding_bot">
   <div class="col s1"><%= character.character_lvl %></div>
-  <div class="col s4"><%= character.name %></div>
+  <div class="col s2"><%= character.name %></div>
+  <div class="col s2"><%= character.race.name %></div>
   <div class="col s7"><%= classes_string(character) %></div>
 </div>
 <% end %>

@@ -90,6 +90,7 @@ class Character
   embeds_many :class_lvls
   belongs_to :race, inverse_of: nil, index: true
   embeds_one :inventory
+  embeds_one :hit_point
 
   accepts_nested_attributes_for :class_lvls, :inventory
 
