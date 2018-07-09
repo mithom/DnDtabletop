@@ -8,7 +8,6 @@ class Item
   field :value, type: Integer
   field :description, type: String
 
-  # TODO: implement
   has_and_belongs_to_many :item_properties, inverse_of: nil
 
   rails_admin do

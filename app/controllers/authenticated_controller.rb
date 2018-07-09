@@ -23,5 +23,7 @@ class AuthenticatedController < ApplicationController
     # Effect.create!(effect_node: 'strength', effect_function: '[0, self.class.modifier(intelligence)].max',
     #                effectable: race_feat)
     # Inventory.create!(character: char)
+    # char = current_user.characters.first
+    # HitPoint.create!(character: char, current_hp: 10)
   end
 end

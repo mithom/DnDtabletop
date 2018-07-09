@@ -22,7 +22,15 @@ class CharacterPolicy < ApplicationPolicy
   end
 
   def permitted_attributes
-    [:strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma, :name]
+    [:strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma, :name, :race_id] # TODO: update list
+  end
+
+  def edit?
+    @user.characters.include? @record
+  end
+
+  def update?
+    false
   end
 
 end

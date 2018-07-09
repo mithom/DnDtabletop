@@ -26,8 +26,6 @@ class ApplicationController < ActionController::Base
   private
 
   def user_not_authorized(exception)
-    # TODO: create custom error messages & redirect to buying page
-    # https://github.com/varvet/pundit#creating-custom-error-messages
     policy_name = exception.policy.class.to_s.underscore
 
     flash[:error] = t "#{policy_name}.#{exception.query}", scope: "pundit", default: :default

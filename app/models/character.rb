@@ -22,9 +22,18 @@ class Character
   add_effect_node :wisdom
   add_effect_node :charisma
 
-  add_effect_node :weapon_proficiencies, type: :list, old: false
-  add_effect_node :armor_proficiencies, type: :list, old: false
-  add_effect_node :tool_proficiencies, type: :list, old: false
+  def weapon_proficiencies
+    []
+  end
+  def armor_proficiencies
+    []
+  end
+  def tool_proficiencies
+    []
+  end
+  add_effect_node :weapon_proficiencies, type: :list
+  add_effect_node :armor_proficiencies, type: :list
+  add_effect_node :tool_proficiencies, type: :list
 
   def has_proficiency?(item)
     return false unless item
@@ -54,8 +63,8 @@ class Character
   end
 
   def attack_bonus
-    attack_bonus = self.class.modifier(strength) # TODO: make dependable on weapon, finesse -> allow dex
-    attack_bonus += proficiency_bonus if has_proficiency?(Inventory.equipped(inventory.weapons).first.item)
+    attack_bonus = self.class.modifier(strength)
+    attack_bonus += proficiency_bonus if has_proficiency?(Inventory.equipped(inventory.weapons).first&.item)
     attack_bonus
   end
   add_effect_node :attack_bonus
@@ -89,8 +98,8 @@ class Character
   has_and_belongs_to_many :character_feats, inverse_of: nil, index: true
   embeds_many :class_lvls
   belongs_to :race, inverse_of: nil, index: true
-  embeds_one :inventory
-  embeds_one :hit_point
+  embeds_one :inventory, autobuild: true
+  embeds_one :hit_point, autobuild: true
 
   accepts_nested_attributes_for :class_lvls, :inventory
 

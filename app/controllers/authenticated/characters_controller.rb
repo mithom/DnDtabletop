@@ -16,22 +16,26 @@ module Authenticated
 
     # POST /users/characters
     def create
-
+      authorize Character
+      new_character = current_user.characters.create!(permitted_attributes(Character))
+      redirect_to character_path(new_character)
     end
 
     # GET /users/characters/new
     def new
-      authorize Character
+      @character = current_user.characters.new
+      @character.class_lvls.new
+      authorize @character
     end
 
     # GET /users/characters/:id/edit
     def edit
-
+      @character = authorize current_user.characters.find(params[:id])
     end
 
     # PATCH/PUT /users/characters/:id
     def update
-
+      @character = authorize current_user.characters.find(params[:id])
     end
 
     # DELETE /users/characters/:id

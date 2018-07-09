@@ -1,1 +1,67 @@
 <h1>You are here to create a new character</h1>
+<%= form_for(@character) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br/>
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="stats">
+    <h3>base stats</h3>
+    <!-- TODO: add counter that shows points + point cost at each stat -->
+    <div class="field">
+      <%= f.label :strength %><br/>
+      <%= f.number_field :strength, in: 1.0..20.0, step: 1.0, value: 8 %>
+    </div>
+    <div class="field">
+      <%= f.label :dexterity %><br/>
+      <%= f.number_field :dexterity, in: 1.0..20.0, step: 1.0, value: 8 %>
+    </div>
+    <div class="field">
+      <%= f.label :constitution %><br/>
+      <%= f.number_field :constitution, in: 1.0..20.0, step: 1.0, value: 8 %>
+    </div>
+    <div class="field">
+      <%= f.label :intelligence %><br/>
+      <%= f.number_field :intelligence, in: 1.0..20.0, step: 1.0, value: 8 %>
+    </div>
+    <div class="field">
+      <%= f.label :wisdom %><br/>
+      <%= f.number_field :wisdom, in: 1.0..20.0, step: 1.0, value: 8 %>
+    </div>
+    <div class="field">
+      <%= f.label :charisma %><br/>
+      <%= f.number_field :charisma, in: 1.0..20.0, step: 1.0, value: 8 %>
+    </div>
+  </div>
+
+  <!-- TODO: class_lvl hiervan maken -->
+  <div class="field">
+    <%= #f.label :class
+    %>
+    <%= #f.collection_select(:character_class, CharacterClass.all, :id, :name, options = {}, html_options = {multiple: true})
+    %>
+  </div>
+
+  <div class="field">
+    <%= f.label :race %>
+    <%= f.collection_select(:race_id, Race.all.to_a, :id, :name, options = {}, html_options = { style: "display: block !important" }) %>
+  </div>
+
+  <div class="hitpoints">
+    <div class="field">
+      <%= f.fields_for @character.hit_point do |hp_f| %>
+        <%= hp_f.check_box :use_default_hp, value: "1", class: "filled-in" %>
+        <%= hp_f.label :use_default_hp, "use default hp?" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :class_lvl "starting class"%>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "Create Character" %>
+  </div>
+<% end %>

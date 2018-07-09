@@ -11,10 +11,10 @@ Rails.application.routes.draw do
   get 'about', to: 'application#about'
   get 'features', to: 'application#features'
   scope 'user', module: 'authenticated' do
-    resources :characters
+    resources :characters, only: [:index, :show, :new, :create] # TODO: add all options
   end
 
   scope module: 'application' do
-    resources :character_classes, path: 'classes'
+    resources :character_classes, path: 'classes', only: [:index, :show]
   end
 end

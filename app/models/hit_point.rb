@@ -4,7 +4,7 @@ class HitPoint
 
   field :rolled_hp, type: Integer, default: 0
   field :use_default_hp, type: Boolean, default: true
-  field :current_hp, type: Integer
+  field :current_hp, type: Integer, default: 0
   field :temp_max_hp, type: Integer, default: 0
   field :death_saving_success, type: Integer, default: 0
   field :death_saving_failure, type: Integer, default: 0
