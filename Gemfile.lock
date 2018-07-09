@@ -271,8 +271,8 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   kaminari-mongoid
   listen (>= 3.0.5, < 3.2)
-  material_icons
-  materialize-sass
+  material_icons (~> 2.2.1)
+  materialize-sass (~> 0.100.2)
   mongoid (~> 6.3.0)
   mongoid-enum!
   puma (~> 3.7)

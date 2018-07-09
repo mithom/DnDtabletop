@@ -101,7 +101,7 @@ class Character
   embeds_one :inventory, autobuild: true
   embeds_one :hit_point, autobuild: true
 
-  accepts_nested_attributes_for :class_lvls, :inventory
+  accepts_nested_attributes_for :class_lvls, :inventory, :hit_point
 
   rails_admin do
     configure :character_feats do

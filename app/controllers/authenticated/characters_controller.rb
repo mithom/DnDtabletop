@@ -18,6 +18,7 @@ module Authenticated
     def create
       authorize Character
       new_character = current_user.characters.create!(permitted_attributes(Character))
+      new_character.inventory.save
       redirect_to character_path(new_character)
     end
 

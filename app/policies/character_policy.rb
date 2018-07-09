@@ -22,7 +22,8 @@ class CharacterPolicy < ApplicationPolicy
   end
 
   def permitted_attributes
-    [:strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma, :name, :race_id] # TODO: update list
+    [:strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma, :name, :race_id,
+     hit_point_attributes: [:use_default_hp], class_lvls_attributes: [:character_class_id, :first_class]]
   end
 
   def edit?

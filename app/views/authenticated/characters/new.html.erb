@@ -34,14 +34,6 @@
     </div>
   </div>
 
-  <!-- TODO: class_lvl hiervan maken -->
-  <div class="field">
-    <%= #f.label :class
-    %>
-    <%= #f.collection_select(:character_class, CharacterClass.all, :id, :name, options = {}, html_options = {multiple: true})
-    %>
-  </div>
-
   <div class="field">
     <%= f.label :race %>
     <%= f.collection_select(:race_id, Race.all.to_a, :id, :name, options = {}, html_options = { style: "display: block !important" }) %>
@@ -49,16 +41,21 @@
 
   <div class="hitpoints">
     <div class="field">
-      <%= f.fields_for @character.hit_point do |hp_f| %>
+      <%= f.fields_for :hit_point, @character.hit_point do |hp_f| %>
         <%= hp_f.check_box :use_default_hp, value: "1", class: "filled-in" %>
         <%= hp_f.label :use_default_hp, "use default hp?" %>
       <% end %>
     </div>
   </div>
 
-  <div class="field">
-    <%= f.label :class_lvl, "starting class"%>
-  </div>
+    <%= f.fields_for :class_lvls, @character.class_lvls do |cls_f| %>
+      <%= cls_f.check_box :first_class, value: "1", class:"hidden filled-in" %>
+
+      <div class="field">
+        <%= cls_f.label :class_lvl, "starting class"%>
+        <%= cls_f.collection_select(:character_class_id, CharacterClass.all.to_a, :id, :name, options = {}, html_options= {style: "display: block !important"}) %>
+      </div>
+    <% end %>
 
 
   <div class="actions">

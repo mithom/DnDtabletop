@@ -45,9 +45,9 @@ gem 'rails_admin', '~> 1.2'
 gem 'kaminari-mongoid'
 
 # materialize to style our webpages
-gem 'materialize-sass'
+gem 'materialize-sass', '~> 0.100.2'
 # Materialize icons
-gem 'material_icons'
+gem 'material_icons', '~> 2.2.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
