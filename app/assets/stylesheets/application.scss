@@ -1,0 +1,161 @@
+///*
+// * This is a manifest file that'll be compiled into application.css, which will include all the files
+// * listed below.
+// *
+// * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+// * vendor/assets/stylesheets directory can be referenced here using a relative path.
+// *
+// * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+// * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+// * files in this directory. Styles in this file should be added after the last require_* statement.
+// * It is generally better to create a new file per style scope.
+// *
+// *= require_tree .
+// *= require_self
+// */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 1em;
+  line-height: 1.5em;
+  background-color: #d1d1d1;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 60px;
+  padding: 25px;
+  text-shadow: 0 3px 3px #888;
+}
+
+h3 {
+  font-size: 30px;
+  line-height: 45px;
+  padding: 20px;
+  text-shadow: 0 3px 3px #888;
+}
+
+h4 {
+  font-size: 25px;
+  text-align: center;
+}
+
+p {
+  padding: 20px;
+  font-size: 20px;
+  line-height: 30px;
+
+}
+
+nav {
+  background-color: #de5131;
+  color: #fff;
+  margin-bottom: 0;
+  font-weight: bold;
+  box-shadow: 0 0 5px grey;
+}
+
+form {
+  padding-left: 20px;
+}
+
+.container{
+  background-color: #fafafa;
+  width: 100%;
+}
+
+.character_li {
+  font-size: 20px;
+  line-height: 35px;
+}
+
+.remove_padding_bot {
+  margin-bottom: 0 !important;
+}
+
+#table80{
+  margin: auto;
+  width: 80%;
+  padding-bottom: 5%;
+}
+
+.devise_links{
+  //padding: 5px auto;
+}
+
+.container_Login{
+  width: 400px;
+  border: 3px solid #000;
+  border-radius: 20px;
+  margin: auto;
+  padding-bottom: 12px !important;
+}
+.padding_side20{
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.login{
+  padding: 0 !important;
+  margin: 0!important;
+  width: 100%;
+}
+.login_button{
+  margin: auto;
+}
+@media (max-width: 600px) {
+  .collection_title{
+    font-size: 15px;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+  .horizontal_centre {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    align-content: center;
+  }
+  h1 {
+    font-size: 30px;
+    line-height: 45px;
+    padding: 30px;
+    text-shadow: 0 3px 3px #888;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 600px) {
+  .collection_title {
+    font-size: 28px;
+    color: darkslategrey;
+  }
+  .horizontal_centre {
+    align-content: center;
+  }
+  h1 {
+    font-size: 40px;
+    line-height: 60px;
+    padding: 30px;
+    text-shadow: 0 3px 3px #888;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1000px) {
+  .container {
+    box-shadow: 0 0 5px grey;
+    margin: 0 auto;
+    max-width: 80%;
+    width: 80%;
+  }
+  h1 {
+    font-size: 50px;
+    line-height: 75px;
+    padding: 30px;
+    text-shadow: 0 3px 3px #888;
+    margin: 0 auto;
+  }
+}

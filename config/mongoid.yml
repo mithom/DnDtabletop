@@ -5,11 +5,10 @@ development:
     default:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: dnd_tabletop_development
+#      database: dnd_tabletop_development
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
-      hosts:
-        - localhost:27017
+      uri: mongodb+srv://<%= Rails.application.credentials.mongodb[:username] %>:<%= Rails.application.credentials.mongodb[:password] %>@dndtabletop.aq6gh.mongodb.net/DnDTabletop?retryWrites=true&w=majority
       options:
         # Note that all options listed below are Ruby driver client options (the mongo gem).
         # Please refer to the driver documentation of the version of the mongo gem you are using
@@ -60,7 +59,7 @@ development:
         # local_threshold: 0.015
 
         # The timeout in seconds for selecting a server for an operation. (default: 30)
-        # server_selection_timeout: 30
+         server_selection_timeout: 5
 
         # The maximum number of connections in the connection pool. (default: 5)
         # max_pool_size: 5

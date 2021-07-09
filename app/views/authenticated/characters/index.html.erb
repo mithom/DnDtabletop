@@ -1,0 +1,17 @@
+<!--<h1 class="center-align">Listing characters from <%#= (current_user.first_name + '&nbsp;'+ current_user.last_name).html_safe %></h1>-->
+<h1 class="center-align">Listing characters from testing</h1>
+
+<div id="table80">
+  <%= render partial: 'create_new' %>
+  <div class="collection with-header">
+    <div class="row collection-header remove_padding_bot collection_title">
+      <!-- TODO: hier moet nog race bij staan -->
+      <div class="col s1">Lvl</div>
+      <div class="col s2">Name</div>
+      <div class="col s2">Race</div>
+      <div class="col s7">Class</div>
+    </div>
+
+    <%= render partial: 'character_li', collection: @characters, as: :character %>
+  </div>
+</div>

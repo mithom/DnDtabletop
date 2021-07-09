@@ -6,7 +6,7 @@ ruby '3.0.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 5.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -51,4 +51,14 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #add database gem
-gem 'mongoid', '~> 7.0.5'
+gem 'mongoid', git: 'https://github.com/mongodb/mongoid'
+# gem 'mongoid', '~> 7.3.0'
+gem 'enumerize', '~> 2.4.0'
+
+#authentication and authorisation
+gem "pundit", "~> 2.1"
+gem 'devise'
+
+gem 'rails_admin', '~> 2.0'
+gem 'kaminari-mongoid'
+gem 'request_store'

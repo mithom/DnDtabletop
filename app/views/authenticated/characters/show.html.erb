@@ -1,0 +1,90 @@
+<strong>Name:</strong>
+<p>
+  <%= @character.name %>
+</p>
+
+<strong>Lvl / class:</strong>
+<br>
+<% class_lvl_strings(@character).each do |lvl_String| %>
+  <p> <%= lvl_String %></p>
+<% end %>
+<%= render partial: 'hit_points' %>
+<table>
+  <tbody>
+  <tr>
+    <td>strength</td>
+    <td><%= @character.strength %></td>
+    <td><%= Character.modifier(@character.strength) %></td>
+  </tr>
+  <tr>
+    <td>dexterity</td>
+    <td><%= @character.dexterity %></td>
+    <td><%= Character.modifier(@character.dexterity) %></td>
+  </tr>
+  <tr>
+    <td>constitution</td>
+    <td><%= @character.constitution %></td>
+    <td><%= Character.modifier(@character.constitution) %></td>
+  </tr>
+  <tr>
+    <td>intelligence</td>
+    <td><%= @character.intelligence %></td>
+    <td><%= Character.modifier(@character.intelligence) %></td>
+  </tr>
+  <tr>
+    <td>wisdom</td>
+    <td><%= @character.wisdom %></td>
+    <td><%= Character.modifier(@character.wisdom) %></td>
+  </tr>
+  <tr>
+    <td>charisma</td>
+    <td><%= @character.charisma %></td>
+    <td><%= Character.modifier(@character.charisma) %></td>
+  </tr>
+  <tr>
+    <td>attack bonus</td>
+    <td colspan="2"><%= @character.attack_bonus %></td>
+  </tr>
+  <tr>
+    <td>ac</td>
+    <td colspan="2"><%= @character.ac %></td>
+  </tr>
+  <tr>
+    <td>speed</td>
+    <td colspan="2"><%= @character.speed %></td>
+  </tr>
+  <tr>
+    <td>can carry? (carried weight)</td>
+    <td><%= ! @character.encumberred? %></td>
+    <td><%= @character.inventory.carry_weight %></td>
+  </tr>
+  <tr>
+    <td>money</td>
+    <td><%= @character.inventory.platinum %></td>
+    <td>platinum</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= @character.inventory.gold %></td>
+    <td>gold</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= @character.inventory.electrum %></td>
+    <td>electrum</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= @character.inventory.silver %></td>
+    <td>silver</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= @character.inventory.copper %></td>
+    <td>copper</td>
+  </tr>
+  </tbody>
+</table>
+
+
+<%= link_to 'Back', characters_path %>

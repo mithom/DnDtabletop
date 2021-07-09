@@ -1,0 +1,17 @@
+<h1>Protected page</h1>
+<%= notice %>
+<%= alert %>
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+<%- if current_user.roles.free? %>
+  <p>
+  you can access all the free content
+  </p>
+<% end %>
+<%- if current_user.roles.subscriber? %>
+  <p>you can access all payed content</p>
+<% end %>
+<%- if current_user.roles.admin? %>
+  <p>you are an admin and can do everything</p>
+<% end %>
