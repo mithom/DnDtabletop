@@ -15,7 +15,7 @@ class AuthenticatedController < ApplicationController
     if user_signed_in?
       test_class = CharacterClass.create!(name: 'test_class', hit_dice: 8)
       multi_class = CharacterClass.create!(name: 'multi_class', hit_dice: 6)
-      test_race = Race.create!(name: 'lol_race')
+      test_race = Race.create!(name: 'lol_race', speed: 25)
       char = Character.create!(name: 'tester', strength: 1, dexterity: 2, constitution: 3,
                                intelligence: 4, wisdom: 5, charisma: 6,
                                user: current_user, race: test_race)

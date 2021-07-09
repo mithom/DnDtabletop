@@ -14,7 +14,7 @@ class CharacterClass
   rails_admin do
     configure :class_feats do
       pretty_value do
-        bindings[:object].send(:racial_feats).map { |v| "#{v.name}: " + v.effects.collect(&:name).join(', ') }.join(' <br />').html_safe
+        bindings[:object].send(:class_feats).map { |v| "#{v.name}: " + v.effects.collect(&:name).join(', ') }.join(' <br />').html_safe
       end
     end
   end

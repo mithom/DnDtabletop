@@ -2,7 +2,7 @@ class Race
   include Mongoid::Document
 
   field :name, type: String
-  field :speed, type: Integer
+  field :speed, type: Integer, default: 30
 
   embeds_many :racial_feats
   accepts_nested_attributes_for :racial_feats

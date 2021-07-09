@@ -55,7 +55,7 @@ class Character
 
   def attack_bonus
     attack_bonus = self.class.modifier(strength) # TODO: make dependable on weapon, finesse -> allow dex
-    attack_bonus += proficiency_bonus if has_proficiency?(Inventory.equipped(inventory.weapons).first.item)
+    attack_bonus += proficiency_bonus if has_proficiency?(Inventory.equipped(inventory.weapons).first&.item)
     attack_bonus
   end
   add_effect_node :attack_bonus
@@ -92,18 +92,18 @@ class Character
   embeds_one :inventory
   embeds_one :hit_point
 
-  accepts_nested_attributes_for :class_lvls, :inventory
+  accepts_nested_attributes_for :class_lvls, :inventory, :hit_point
 
-  # rails_admin do
-  #   configure :character_feats do
-  #     pretty_value do
-  #       bindings[:object].send(:character_feats).map { |v| "#{v.name}: " + v.effects.collect(&:name).join(', ') }.join(' <br />').html_safe
-  #     end
-  #   end
-  #
-  #   # TODO: find solution for this
-  #   edit do
-  #     exclude_fields :strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma
-  #   end
-  # end
+  rails_admin do
+    configure :character_feats do
+      pretty_value do
+        bindings[:object].send(:character_feats).map { |v| "#{v.name}: " + v.effects.collect(&:name).join(', ') }.join(' <br />').html_safe
+      end
+    end
+
+    # TODO: find solution for this
+    edit do
+      exclude_fields :strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma
+    end
+  end
 end
