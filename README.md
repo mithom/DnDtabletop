@@ -43,7 +43,7 @@ there aren't any yet
 
 * Deployment instructions
 
-install mongoDB (i think version 3.6.3) as database server.  
+we have an online free development server at atlas mongodb
 a good program to access the database with if you don't like to do this with terminal is the official mongoDB Compass Community
 
 
